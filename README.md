@@ -29,12 +29,10 @@ Things you may want to cover:
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
-|messages|char|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|name|string|null: false, index:true|
 
 ### Association
-- has_many :groups
+- has_many :groups_users
 - has_many :messages
 
 ## messagesテーブル
@@ -43,30 +41,29 @@ Things you may want to cover:
 |------|----|-------|
 |text|char|
 |image|char|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :groups_messages
+- belongs_to :group
 - belongs_to :user
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|messages|char|null: false, foreign_key: true|
-|groups_users|integer|null: false, foreign_key: true|
+|name|string|null: false, index:true|
 
 ### Association
-- has_many :groups
-- has_many :users
+- has_many :messages
+- has_many :groups_users
 
 ## groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
