@@ -2,13 +2,9 @@ class MessagesController < ApplicationController
   before_action :set_group, only: [:index, :create]
   
   def index
-    
   end
   
   def create
-    @message = @group.messages.new(message_params)
-      before_action :set_group
-
     if @message.save
       redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
     else
