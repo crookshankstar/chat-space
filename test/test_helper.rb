@@ -8,8 +8,3 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
-
-# @post = Post.find(params{:id])
-# @post = Post.find(params[:id])
-# @post = Post.find(params[:id])
-# @post = Post.find(params[:id])
