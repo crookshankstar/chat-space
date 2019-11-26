@@ -1,22 +1,22 @@
 .wrapper
 
-  = render 'shared/side_bar'
+  = render 'shared/side_bar' #renderメソッドを使ってsharedフォルダのside_barファイルを部分テンプレートとして呼び出している
 
   .chat
     .header
       .left-header
         .left-header__title
-          = @group.name
-        %ul.left-header__members
+          = @group.name #ネームメソッドを使ってグループのインスタンス変数で呼び出したものを表示させる
+        %ul.left-header__members 
           Member：
-        - @group.users.each do |user|
+        - @group.users.each do |user|#
           %li.member
             = user.name
 
       .right-header
         .right-header__button
           Edit
-    .messages
+    .messages 
       .message
         .upper-message
           .upper-message__user-name
@@ -25,8 +25,8 @@
             2017/04/04
         .lower-meesage
           .lower-message__content
-            メッセージ
-
+            メッセージ 
+ 
     .form
       %form
         %input.form__message
@@ -35,3 +35,4 @@
             = fa_icon 'picture-o', class: 'icon'
             %input.hidden{type: 'file'}
         %input.form__submit{type: 'submit', value: 'Send'}
+        -# input要素はtypeでどのようなボタンにするかが決まる。form__submitボタンを作成し、{}で内容を詳しく設定。　type: 'submit'ここで送信ボタンを作成している。value: 'Send'ボタンの名前をつけている
