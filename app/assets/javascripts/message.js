@@ -40,22 +40,33 @@ $(function(){
    };
  }
 
-$('.main_chat').on('submit', function(e){
-  // メッセージを送信用のformタグにmain_chatと言うクラスを適用。formがsubmitされた際に以下の処理が行われる
-  e.priventDefault();
+
+$('#new_message').on('submit', function(e){
+  console.log("ok")
+  // メッセージを送信用のformタグに.form__maskと言うクラスを適用。formがsubmitされた際に以下の処理が行われる
+  e.preventDefault();
   //  通常だとフォームを送信するために通信が行われるため.preventDefault();を利用しデフォルトのイベントを止める。
+  // 通常の動作：submit押される→create_controllerでform内容をdbに保存→viewにリダイレクト
   var formData = new FormData(this);
-  // new FormData()でFormDataオブジェクトを作成。
+  // new FormData()でFormDataオブジェクトを作成。引数にformの情報を入れられる
+  // this:イベントを発火させた要素、＃new_messageのこと。formのことでもある。
+
   var url = $(this).attr('action')
+  // テキストフィールドの中身を取得
   $.ajax({
     url:url,
     type: "POST",
+    // createアクションに飛ぶ
     data: formData,
     dataType: 'json',
+    // json型
     processData: false,
     contentType: false
   })
+  // ajaxの処理が行われる。
+
     .done(function(data){
+      // .done以下非同期通信が行われた際の記述がされている
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');         
@@ -67,4 +78,3 @@ $('.main_chat').on('submit', function(e){
     return false;
   });
 });
-// 
