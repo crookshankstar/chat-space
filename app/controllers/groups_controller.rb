@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: [:edit, :update]#editとupdateアクションが呼び出された時beforeアクションを使ってsetgroupを呼び出す。groupクラスにある情報を呼び出す事ができる
+
   def index
   end
   
