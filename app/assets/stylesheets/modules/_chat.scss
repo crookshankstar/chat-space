@@ -41,6 +41,7 @@
     box-sizing: border-box;
     padding: 46px 40px 0;
     height: calc(100vh - 100px - 90px);//overflow: scroll;を適用させるため100%→100vhに変更。100%の記述だと親ブロックから子ブロックがはみ出さないためoverflowが発動しない。
+
     .message {
       .upper-message {
         // display: flex;横並びにする。縦にメッセージを表示させたかったため、もともとあった記述を削除
