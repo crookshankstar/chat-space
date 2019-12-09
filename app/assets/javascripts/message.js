@@ -42,7 +42,6 @@ $(function(){
 
 
 $('#new_message').on('submit', function(e){
-  console.log("ok")
   // メッセージを送信用のformタグに.form__maskと言うクラスを適用。formがsubmitされた際に以下の処理が行われる
   e.preventDefault();
   //  通常だとフォームを送信するために通信が行われるため.preventDefault();を利用しデフォルトのイベントを止める。
