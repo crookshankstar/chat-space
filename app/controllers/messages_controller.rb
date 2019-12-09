@@ -29,18 +29,5 @@ class MessagesController < ApplicationController
   def set_group
     @group = Group.find(params[:group_id])#@groupにGroupから取得したgroup_idを代入する
   end
-  
-  
-  
-  # def roup.messages.new(message_params)
-  #   if @message.save
-  #     redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
-  #   else
-  #     @messages = @group.messages.includes(:user)
-  #     flash.now[:alert] = 'メッセージを入力してください。'
-  #     render :index
-  #   end
-  # end
-
 end
 

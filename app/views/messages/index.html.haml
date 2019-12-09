@@ -18,9 +18,6 @@
         .right-header__button
           Edit
     .messages
-      -# .message
-      -#   .upper-message
-      -#     .upper-message__user-name
       - @messages.each do |f|
         = render partial: "message", locals: { message: f }
 
