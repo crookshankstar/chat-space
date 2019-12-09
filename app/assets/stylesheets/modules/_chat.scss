@@ -34,16 +34,13 @@
   }
 
   .messages {
-    overflow: scroll;
-    // overflow: hidden;
-    // position: relative;
     background-color: #FAFAFA;
     box-sizing: border-box;
     padding: 46px 40px 0;
-    height: calc(100vh - 100px - 90px);
+    height: calc(100% - 100px - 90px);
     .message {
       .upper-message {
-        // display: flex;横並びにする
+        display: flex;
         &__user-name {
           color: #434a54;
           font-size: 16px;
