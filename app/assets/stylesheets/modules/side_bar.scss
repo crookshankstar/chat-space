@@ -7,7 +7,8 @@
     box-sizing: border-box;
     background-color: $side_blue_dark;
     height: 100px;
-    line-height: 100px;
+   
+    line-height: 99px;
     padding: 0 20px;
     &__name {
       display: inline-block;
@@ -27,21 +28,28 @@
       }
     }
   }
-
+  
   .groups {
+    // overflow: auto;
     background-color: $side_blue_light;
+    // width: 100%;
+    width: calc(100% - 40px); 
     height: calc(100vh - 100px);
     padding: 0 20px;
     // position: fixed;
-    // overflow: scroll;
+    overflow: scroll;
+    // box-sizing: border-box;
     .group {
-      // color: floralwhite;
+      // overflow: scroll;
+      text-decoration: none;
       box-sizing: border-box;
       padding: 20px 0 40px;
       &__name {
+        color: white;
         font-size: $side_group_name;
       }
       &__message {
+        color: white;
         font-size: $side_group_message;
         margin-top: 5px;
       }
