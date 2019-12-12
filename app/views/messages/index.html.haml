@@ -15,8 +15,11 @@
               = group_user.user.name#中間テーブルの書き方
               
       .right-header
-        .right-header__button
-          Edit
+        .right-header__btn
+          = link_to edit_group_path(@group), class: "btn" do
+            Edit
+          -# = f.submit 'Send', class: 'btn'
+          -# = "Edit", edit_group_path(resource_name), class: 'btn'
     .messages
       - @messages.each do |f|
         = render partial: "message", locals: { message: f }

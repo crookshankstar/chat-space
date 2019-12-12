@@ -2,12 +2,14 @@ class MessagesController < ApplicationController
   before_action :set_group, only: [:index, :create]#indexアクション、createアクションが呼び出された時、set_groupでグループidを取得して@groupを使えるようにしておく
   
   def index
+    # binding.pry
     @message = Message.new
     @messages = @group.messages.includes(:user)
   end
   
 
   def create
+    # binding.pry
     @message = @group.messages.new(message_params)
     if @message.save
       respond_to do |format|

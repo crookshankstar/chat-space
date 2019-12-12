@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
 
   def index
+    # binding.pry
+    return nil if params[:keyword] == ""#キーワードの中身がからだった場合nilで返すよ。と行っている
+    @users = User.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(10)#検索ワードに入力された値を含んでいて、かつログイン中のユーザーを含まない。%#{params[:keyword]%}で入力した値を含む文字。
+    # binding.pry
+    respond_to do |format|#インクリメンタルサーチのための記述。APIを生成。下記条件分岐させる
+      format.html#HTMLの時
+      format.json#jsonの時
+    end
   end
   
   def edit
