@@ -1,38 +1,4 @@
 $(function(){ 
-
-  
-  // last_message_id = $('.message').last().カスタムデータ属性をしゅとくするめそっど;
-
-  // var buildHTML = function(message) {
-  //   if (message.content && message.image) {
-  //     //data-idが反映されるようにしている
-  //     = render 'data'
-  //       `<div class="lower-message">` +
-  //         `<p class="lower-message__content">` +
-  //           message.content +
-  //         `</p>` +
-  //         `<img src="` + message.image + `" class="lower-message__image" >` +
-  //       `</div>` +
-  //     `</div>`
-  //   } else if (message.content) {
-  //     //同様に、data-idが反映されるようにしている
-  //     = render 'data'
-  //       `<div class="lower-message">` +
-  //         `<p class="lower-message__content">` +
-  //           message.content +
-  //         `</p>` +
-  //       `</div>` +
-  //     `</div>`
-  //   } else if (message.image) {
-  //     //同様に、data-idが反映されるようにしている
-  //     = render 'data'
-  //       `<div class="lower-message">` +
-  //         `<img src="` + message.image + `" class="lower-message__image" >` +
-  //       `</div>` +
-  //     `</div>`
-  //   };
-  //   return html;
-  // };
   var buildHTML = function(message) {
     if (message.content && message.image) {
       //data-idが反映されるようにしている
@@ -53,7 +19,6 @@ $(function(){
         `</div>` +
       `</div>`
     } else if (message.content) {
-      //同様に、data-idが反映されるようにしている
       var html = `<div class="message" data-message-id=` + message.id + `>` +
         `<div class="upper-message">` +
           `<div class="upper-message__user-name">` +
@@ -70,7 +35,6 @@ $(function(){
         `</div>` +
       `</div>`
     } else if (message.image) {
-      //同様に、data-idが反映されるようにしている
       var html = `<div class="message" data-message-id=` + message.id + `>` +
         `<div class="upper-message">` +
           `<div class="upper-message__user-name">` +
@@ -87,9 +51,6 @@ $(function(){
     };
     return html;
   };
-
-
-
 
 $('#new_message').on('submit', function(e){
   // メッセージを送信用のformタグに.form__maskと言うクラスを適用。formがsubmitされた際に以下の処理が行われる
@@ -131,7 +92,6 @@ $('#new_message').on('submit', function(e){
   var reloadMessages = function() {
     var last_message_id = $('.message:last').data("message-id");
     console.log(last_message_id);
-    // last_message_id = $('.message:last-child').data('id');
     $.ajax({
       url: "api/messages",
       type: 'get',
@@ -139,7 +99,6 @@ $('#new_message').on('submit', function(e){
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      // console.log('success');
       var insertHTML = '';
       $.each(messages, function(i, message) {
         insertHTML += buildHTML(message)
