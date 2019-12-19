@@ -91,7 +91,6 @@ $('#new_message').on('submit', function(e){
 
   var reloadMessages = function() {
     var last_message_id = $('.message:last').data("message-id");
-    console.log(last_message_id);
     $.ajax({
       url: "api/messages",
       type: 'get',
@@ -107,7 +106,7 @@ $('#new_message').on('submit', function(e){
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
     })
     .fail(function() {
-      console.log('error');
+      console.('error');
     });
   };
 
