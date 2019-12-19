@@ -106,7 +106,7 @@ $('#new_message').on('submit', function(e){
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
     })
     .fail(function() {
-      console.('error');
+      console.log('error');
     });
   };
 
