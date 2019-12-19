@@ -30,15 +30,12 @@
   }
   
   .groups {
-    // overflow: auto;
     background-color: $side_blue_light;
-    // width: 100%;
     width: calc(100% - 40px); 
     height: calc(100vh - 100px);
     padding: 0 20px;
-    // position: fixed;
     overflow: scroll;
-    // box-sizing: border-box;
+    text-decoration: none;
     .group {
       // overflow: scroll;
       text-decoration: none;

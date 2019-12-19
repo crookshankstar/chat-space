@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   
   def index
     # binding.pry
+    last_message_id = params[:id].to_i
     @message = Message.new
     @messages = @group.messages.includes(:user)
   end

@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :edit, :update] do
     resources :messages, only: [:index, :create]
     # グループにネストさせルーティングを組む。index:メッセージの入力と表示。create:メッセージの保存
+    namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }#defaultsはjson型で返す事が
+    end
   end
 end
