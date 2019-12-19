@@ -1,4 +1,7 @@
-.message
+-# .message{data: {message: {id: "automatic"}}}
+-# .message{"data-message-id": "#{message.id}"}
+-# 
+.message{data:{message:{id:"#{message.id}"}}}
   .upper-message
     .upper-message__user-name
       = message.user.name
