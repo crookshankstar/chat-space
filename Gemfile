@@ -79,3 +79,5 @@ gem 'mini_magick'
 gem 'simple_form'
 
 gem 'carrierwave'
+
+gem 'fog-aws'
