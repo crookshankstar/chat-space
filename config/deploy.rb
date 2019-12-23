@@ -36,8 +36,9 @@ end
 set :default_env, {
   rbenv_root: "/user/local/rbenv",
   path: "/user/local/rbenv/shims:/user/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"]
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+  # AWS_SECRET_ACCESS_KEY: ENV[""]
 }
 
 set :linked_files, %w{ config/secrets.yml }
