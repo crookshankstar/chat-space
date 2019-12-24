@@ -31,6 +31,7 @@ class MessagesController < ApplicationController
   
   def set_group
     @group = Group.find(params[:group_id])#@groupにGroupから取得したgroup_idを代入する
+    Time.zone = 'Tokyo'
   end
 end
 
